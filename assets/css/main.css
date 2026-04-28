@@ -1770,8 +1770,7 @@ section .hero {
 
 .glpi .glpi-intro h3 {
   font-size: clamp(28px, 3vw, 38px);
-  font-weight: 400;
-  margin-bottom: 14px;
+  forgin-bottom: 14px;
 }
 
 .glpi .glpi-intro p {
@@ -1786,25 +1785,27 @@ section .hero {
   gap: 12px;
   justify-content: flex-start;
 }
-
 .glpi .glpi-visual {
   background: #ffffff;
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 90%);
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+  display: block;        /* ← était inline-block, ça cassait la largeur */
+  width: 100%;
+  cursor: zoom-in;
+  position: relative;
 }
 
 .glpi .glpi-visual img {
   width: 100%;
   display: block;
+  transition: opacity 0.2s, transform 0.3s ease;
 }
 
-.glpi .glpi-visual figcaption {
-  padding: 14px 18px 18px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: color-mix(in srgb, var(--default-color), transparent 12%);
+.glpi .glpi-visual:hover img {
+  opacity: 0.88;
+  transform: scale(1.02);  /* petit effet au survol */
 }
 
 .glpi .glpi-pillars span {
@@ -1868,7 +1869,6 @@ section .hero {
     border-radius: 20px;
   }
 }
-
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
